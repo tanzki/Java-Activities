@@ -1,14 +1,15 @@
 package Task121;
 public class DateTask {
    // instance variables
- byte day;
- byte month;
- short year;
+
+	private byte day;
+	private byte month;
+	private short year;
 // Constructors:
 
 // The no-args constructor
 public DateTask() {
-    
+   this (1, 1, 1);
 }
 // Constructor that takes 3 arguments
 public DateTask(int m, int d, int y) {
@@ -16,7 +17,7 @@ public DateTask(int m, int d, int y) {
 }
 // Methods
 public String toString() {
-    return month + "-" + day + "-" + year;
+    return month + "/" + day + "/" + year;
 }
 public void setDate(int m, int d, int y) {
     if (valid(d, m, y)) {
@@ -37,16 +38,19 @@ public static void leapYears() {
     }
 }
 public int getDay() {
-    
+    return day;
 }
 public void setDay(int day) {
     if (valid(day, month, year)) {
         this.day = (byte) day;
     }
+    else{
+        this.day = (byte) 0;
+    }
     
 }
 public int getMonth() {
-    
+    return month;
 }
 public void setMonth(int month) {
     if (valid(day, month, year)) {
@@ -57,7 +61,7 @@ public void setMonth(int month) {
     }
 }
 public int getYear() {
-    
+    return year;
 }
 public void setYear(int year) {
     if (valid(day, month, year)) {
@@ -73,7 +77,7 @@ private boolean valid(int day, int month, int year) {
         return false;
     }
     switch (month) {
-        case 4:
+        case 4: 
         case 6:
         case 9:
         case 11:
